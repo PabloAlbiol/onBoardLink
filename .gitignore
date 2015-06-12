@@ -26,3 +26,20 @@
 *.exe
 *.out
 *.app
+
+# Folders
+bin/
+debug/
+Debug/
+release/
+Release/
+obj/
+
+# Others
+*.layout
+*.cc.save
+*.cpp.save
+*.h.save
+*.cc~
+*.cpp~
+*.h~
