@@ -36,6 +36,7 @@ Release/
 obj/
 
 # Others
+*.cbp
 *.layout
 *.cc.save
 *.cpp.save
