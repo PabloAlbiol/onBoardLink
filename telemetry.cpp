@@ -371,8 +371,9 @@ void telemetry::receive(void)
 
                         _onboard_references_quadrotor = true;
                         pthread_mutex_unlock(&mutexReceiveReferences);
+                        printf ("thrust = %f\n", onboard_references_quadrotor.thrust);
 
-                        if (((bitmaskAux >> 4) & 1)==0) // Custom bitmask. I use this byte to avoid resending the message
+                        if (getBitBitfield(bitmaskAux, 3)==0) // Custom bitmask. I use this byte to avoid resending the message
                         {
                             write_onboard_references_quadrotor();
                         }
