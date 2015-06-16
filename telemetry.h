@@ -44,6 +44,8 @@ class telemetry
         void write_sys_status(uint32_t _onboard_control_sensors_present, uint32_t _onboard_control_sensors_enabled, uint32_t _onboard_control_sensors_health, uint16_t _load, uint16_t _voltage_battery, int16_t _current_battery, int8_t _battery_remaining);
         void write_mission_current(uint16_t _seq);
         void write_mission_item_reached(uint16_t seq);
+        void write_onboard_motors_quadrotor(float ref1, float ref2, float ref3, float ref4);
+        void write_string_message(const char msg[]);
 
         bool b_set_mode();
         bool b_mission_set_current();
@@ -51,6 +53,7 @@ class telemetry
         bool b_onboard_pid_parameters_attitude();
         bool b_onboard_pid_parameters_position();
         bool b_onboard_references_quadrotor();
+        bool b_set_motors_quadrotor();
 
         void get_set_mode(uint8_t *get_base_mode, uint32_t *get_custom_mode);
         void get_mission_set_current(uint8_t *get_seq);
@@ -58,6 +61,7 @@ class telemetry
         void get_onboard_pid_parameters_attitude(mavlink_onboard_pid_parameters_attitude_t *get_onboard_pid_parameters_attitude);
         void get_onboard_pid_parameters_position(mavlink_onboard_pid_parameters_position_t *get_onboard_pid_parameters_position);
         void get_onboard_references_quadrotor(mavlink_onboard_references_quadrotor_t *get_onboard_references_quadrotor);
+        void get_set_motors_quadrotor(mavlink_set_motors_quadrotor_t *get_set_motors_quadrotor);
 
     // Private variables
     private:
@@ -121,6 +125,12 @@ class telemetry
         mavlink_set_references_quadrotor_t set_references_quadrotor;
         mavlink_onboard_references_quadrotor_t onboard_references_quadrotor;
         uint8_t bitmaskAux;
+        mavlink_set_motors_quadrotor_t set_motors_quadrotor;
+        mavlink_onboard_motors_quadrotor_t onboard_motors_quadrotor;
+        mavlink_string_message_25_t string_message_25;
+        mavlink_string_message_50_t string_message_50;
+        mavlink_string_message_75_t string_message_75;
+        mavlink_string_message_100_t string_message_100;
 
         // WAYPOINT PROTOCOL
         std::vector<mavlink_mission_item_t> mission_item;
@@ -142,6 +152,7 @@ class telemetry
         bool _onboard_pid_parameters_attitude;
         bool _onboard_pid_parameters_position;
         bool _onboard_references_quadrotor;
+        bool _set_motors_quadrotor;
 
     // Private functions
     private:

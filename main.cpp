@@ -40,7 +40,6 @@ int main()
     mavlink_onboard_pid_parameters_attitude_t onboard_pid_parameters_attitude;
     std::vector<mavlink_mission_item_t> mission_item;
 
-
     signal(SIGINT, signalHandler);
 
     tele = new telemetry();
@@ -48,6 +47,7 @@ int main()
     tele->setupTelemetry();
     // Start telemetry (create the thread)
     tele->startTelemetry();
+
 
     while (run)
     {

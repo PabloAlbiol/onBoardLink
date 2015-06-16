@@ -2776,141 +2776,173 @@
             <field type="float" name="distance">Distance to the target from the vehicle in meters</field>
         </message>
         <!-- MESSAGE IDs 180 - 240: Space for custom messages in individual projectname_messages.xml files -->
-	<message id="180" name="SET_PID_PARAMETERS_ATTITUDE">
+		<message id="180" name="SET_PID_PARAMETERS_ATTITUDE">
             <description>Set attitude PID parameters.</description>
             <field type="float" name="pitch_p">Proportional value for the pitch</field>
             <field type="float" name="pitch_d">Derivative value for the pitch</field>
             <field type="float" name="pitch_i">Integral value for the pitch</field>
-	    <field type="float" name="pitch_p_sat">Saturation for the proportional value of the pitch</field>
+			<field type="float" name="pitch_p_sat">Saturation for the proportional value of the pitch</field>
             <field type="float" name="pitch_d_sat">Saturation for the derivative value of the pitch</field>
             <field type="float" name="pitch_i_sat">Saturation for the integral value of the pitch</field>
-	    <field type="float" name="roll_p">Proportional value for the roll</field>
+			<field type="float" name="roll_p">Proportional value for the roll</field>
             <field type="float" name="roll_d">Derivative value for the roll</field>
             <field type="float" name="roll_i">Integral value for the roll</field>
-	    <field type="float" name="roll_p_sat">Saturation for the proportional value of the roll</field>
+			<field type="float" name="roll_p_sat">Saturation for the proportional value of the roll</field>
             <field type="float" name="roll_d_sat">Saturation for the derivative value of the roll</field>
             <field type="float" name="roll_i_sat">Saturation for the integral value of the roll</field>
-	    <field type="float" name="yaw_p">Proportional value for the yaw</field>
+			<field type="float" name="yaw_p">Proportional value for the yaw</field>
             <field type="float" name="yaw_d">Derivative value for the yaw</field>
             <field type="float" name="yaw_i">Integral value for the yaw</field>
-	    <field type="float" name="yaw_p_sat">Saturation for the proportional value of the yaw</field>
+			<field type="float" name="yaw_p_sat">Saturation for the proportional value of the yaw</field>
             <field type="float" name="yaw_d_sat">Saturation for the derivative value of the yaw</field>
             <field type="float" name="yaw_i_sat">Saturation for the integral value of the yaw</field>
-	    <field type="float" name="height_p">Proportional value for the height</field>
+			<field type="float" name="height_p">Proportional value for the height</field>
             <field type="float" name="height_d">Derivative value for the height</field>
             <field type="float" name="height_i">Integral value for the height</field>
-	    <field type="float" name="height_p_sat">Saturation for the proportional value of the height</field>
+			<field type="float" name="height_p_sat">Saturation for the proportional value of the height</field>
             <field type="float" name="height_d_sat">Saturation for the derivative value of the height</field>
             <field type="float" name="height_i_sat">Saturation for the integral value of the height</field>
-	    <field type="uint8_t" name="target_system">System ID</field>
+			<field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
         </message>
-	<message id="181" name="ONBOARD_PID_PARAMETERS_ATTITUDE">
+		<message id="181" name="ONBOARD_PID_PARAMETERS_ATTITUDE">
             <description>Onboard attitude PID parameters.</description>
             <field type="float" name="pitch_p">Proportional value for the pitch</field>
             <field type="float" name="pitch_d">Derivative value for the pitch</field>
             <field type="float" name="pitch_i">Integral value for the pitch</field>
-	    <field type="float" name="pitch_p_sat">Saturation for the proportional value of the pitch</field>
+			<field type="float" name="pitch_p_sat">Saturation for the proportional value of the pitch</field>
             <field type="float" name="pitch_d_sat">Saturation for the derivative value of the pitch</field>
             <field type="float" name="pitch_i_sat">Saturation for the integral value of the pitch</field>
-	    <field type="float" name="roll_p">Proportional value for the roll</field>
+			<field type="float" name="roll_p">Proportional value for the roll</field>
             <field type="float" name="roll_d">Derivative value for the roll</field>
             <field type="float" name="roll_i">Integral value for the roll</field>
-	    <field type="float" name="roll_p_sat">Saturation for the proportional value of the roll</field>
+			<field type="float" name="roll_p_sat">Saturation for the proportional value of the roll</field>
             <field type="float" name="roll_d_sat">Saturation for the derivative value of the roll</field>
             <field type="float" name="roll_i_sat">Saturation for the integral value of the roll</field>
-	    <field type="float" name="yaw_p">Proportional value for the yaw</field>
+			<field type="float" name="yaw_p">Proportional value for the yaw</field>
             <field type="float" name="yaw_d">Derivative value for the yaw</field>
             <field type="float" name="yaw_i">Integral value for the yaw</field>
-	    <field type="float" name="yaw_p_sat">Saturation for the proportional value of the yaw</field>
+			<field type="float" name="yaw_p_sat">Saturation for the proportional value of the yaw</field>
             <field type="float" name="yaw_d_sat">Saturation for the derivative value of the yaw</field>
             <field type="float" name="yaw_i_sat">Saturation for the integral value of the yaw</field>
-	    <field type="float" name="height_p">Proportional value for the height</field>
+			<field type="float" name="height_p">Proportional value for the height</field>
             <field type="float" name="height_d">Derivative value for the height</field>
             <field type="float" name="height_i">Integral value for the height</field>
-	    <field type="float" name="height_p_sat">Saturation for the proportional value of the height</field>
+			<field type="float" name="height_p_sat">Saturation for the proportional value of the height</field>
             <field type="float" name="height_d_sat">Saturation for the derivative value of the height</field>
             <field type="float" name="height_i_sat">Saturation for the integral value of the height</field>
         </message>
-	<message id="182" name="READ_PID_PARAMETERS_ATTITUDE">
+		<message id="182" name="READ_PID_PARAMETERS_ATTITUDE">
             <description>Read attitude PID parameters.</description>
-	    <field type="uint8_t" name="target_system">System ID</field>
+			<field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
         </message>
-	<message id="183" name="SET_PID_PARAMETERS_POSITION">
+		<message id="183" name="SET_PID_PARAMETERS_POSITION">
             <description>Set position PID parameters.</description>
             <field type="float" name="x_p">Proportional value for the x coordinate</field>
             <field type="float" name="x_d">Derivative value for the x coordinate</field>
             <field type="float" name="x_i">Integral value for the x coordinate</field>
-	    <field type="float" name="x_p_sat">Saturation for the proportional value of the x coordinate</field>
+			<field type="float" name="x_p_sat">Saturation for the proportional value of the x coordinate</field>
             <field type="float" name="x_d_sat">Saturation for the derivative value of the x coordinate</field>
             <field type="float" name="x_i_sat">Saturation for the integral value of the x coordinate</field>
-	    <field type="float" name="y_p">Proportional value for the y coordinate</field>
+			<field type="float" name="y_p">Proportional value for the y coordinate</field>
             <field type="float" name="y_d">Derivative value for the y coordinate</field>
             <field type="float" name="y_i">Integral value for the y coordinate</field>
-	    <field type="float" name="y_p_sat">Saturation for the proportional value of the y coordinate</field>
+			<field type="float" name="y_p_sat">Saturation for the proportional value of the y coordinate</field>
             <field type="float" name="y_d_sat">Saturation for the derivative value of the y coordinate</field>
             <field type="float" name="y_i_sat">Saturation for the integral value of the y coordinate</field>
-	    <field type="float" name="vel_p">Proportional value for the the velocity</field>
+			<field type="float" name="vel_p">Proportional value for the the velocity</field>
             <field type="float" name="vel_d">Derivative value for the velocity</field>
             <field type="float" name="vel_i">Integral value for the velocity</field>
-	    <field type="float" name="vel_p_sat">Saturation for the proportional value of the velocity</field>
+			<field type="float" name="vel_p_sat">Saturation for the proportional value of the velocity</field>
             <field type="float" name="vel_d_sat">Saturation for the derivative value of the velocity</field>
             <field type="float" name="vel_i_sat">Saturation for the integral value of the velocity</field>
-	    <field type="uint8_t" name="target_system">System ID</field>
+			<field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
         </message>
-	<message id="184" name="ONBOARD_PID_PARAMETERS_POSITION">
+		<message id="184" name="ONBOARD_PID_PARAMETERS_POSITION">
             <description>Onboard position PID parameters.</description>
             <field type="float" name="x_p">Proportional value for the x coordinate</field>
             <field type="float" name="x_d">Derivative value for the x coordinate</field>
             <field type="float" name="x_i">Integral value for the x coordinate</field>
-	    <field type="float" name="x_p_sat">Saturation for the proportional value of the x coordinate</field>
+			<field type="float" name="x_p_sat">Saturation for the proportional value of the x coordinate</field>
             <field type="float" name="x_d_sat">Saturation for the derivative value of the x coordinate</field>
             <field type="float" name="x_i_sat">Saturation for the integral value of the x coordinate</field>
-	    <field type="float" name="y_p">Proportional value for the y coordinate</field>
+			<field type="float" name="y_p">Proportional value for the y coordinate</field>
             <field type="float" name="y_d">Derivative value for the y coordinate</field>
             <field type="float" name="y_i">Integral value for the y coordinate</field>
-	    <field type="float" name="y_p_sat">Saturation for the proportional value of the y coordinate</field>
+			<field type="float" name="y_p_sat">Saturation for the proportional value of the y coordinate</field>
             <field type="float" name="y_d_sat">Saturation for the derivative value of the y coordinate</field>
             <field type="float" name="y_i_sat">Saturation for the integral value of the y coordinate</field>
-	    <field type="float" name="vel_p">Proportional value for the the velocity</field>
+			<field type="float" name="vel_p">Proportional value for the the velocity</field>
             <field type="float" name="vel_d">Derivative value for the velocity</field>
             <field type="float" name="vel_i">Integral value for the velocity</field>
-	    <field type="float" name="vel_p_sat">Saturation for the proportional value of the velocity</field>
+			<field type="float" name="vel_p_sat">Saturation for the proportional value of the velocity</field>
             <field type="float" name="vel_d_sat">Saturation for the derivative value of the velocity</field>
             <field type="float" name="vel_i_sat">Saturation for the integral value of the velocity</field>
         </message>
 	<message id="185" name="READ_PID_PARAMETERS_POSITION">
             <description>Read position PID parameters.</description>
-	    <field type="uint8_t" name="target_system">System ID</field>
+			<field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
         </message>
 	<message id="186" name="SET_REFERENCES_QUADROTOR">
-            <description>Set references for the pitch, roll, etc.</description>
+            <description>Set references for the pitch, roll, etc</description>
             <field type="float" name="roll">Roll angle in degrees</field>
             <field type="float" name="pitch">Pitch angle in degrees</field>
             <field type="float" name="yaw">Yaw angle in degrees</field>
-	    <field type="float" name="thrust">Thrust, normalized to 0 .. 1</field>
+			<field type="float" name="thrust">Thrust, normalized to 0 .. 1</field>
             <field type="float" name="x">x position in meteres</field>
             <field type="float" name="y">y position in meteres</field>
-	    <field type="float" name="z">z position in meteres</field>
+			<field type="float" name="z">z position in meteres</field>
             <field type="float" name="velocity">Velocity in km/h</field>
-	    <field type="uint8_t" name="bitmask">Custom bitmask</field>
+			<field type="uint8_t" name="bitmask">Custom bitmask</field>
             <field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
         </message>
 	<message id="187" name="ONBOARD_REFERENCES_QUADROTOR">
-            <description>Onboard references of the pitch, roll, etc.</description>
+            <description>Onboard references of the pitch, roll, etc</description>
             <field type="float" name="roll">Roll angle in degrees</field>
             <field type="float" name="pitch">Pitch angle in degrees</field>
             <field type="float" name="yaw">Yaw angle in degrees</field>
-	    <field type="float" name="thrust">Thrust, normalized to 0 .. 1</field>
+			<field type="float" name="thrust">Thrust, normalized to 0 .. 1</field>
             <field type="float" name="x">x position in meteres</field>
             <field type="float" name="y">y position in meteres</field>
-	    <field type="float" name="z">z position in meteres</field>
+			<field type="float" name="z">z position in meteres</field>
             <field type="float" name="velocity">Velocity in km/h</field>
-	    <field type="uint8_t" name="bitmask">Custom bitmask</field>
+			<field type="uint8_t" name="bitmask">Custom bitmask</field>
+        </message>
+	<message id="188" name="SET_MOTORS_QUADROTOR">
+            <description>Set references for motors 1, 2, 3 and 4.</description>
+            <field type="float" name="ref_motor_1">Reference for motor 1, normalized to 0 .. 1</field>
+			<field type="float" name="ref_motor_2">Reference for motor 2, normalized to 0 .. 1</field>
+			<field type="float" name="ref_motor_3">Reference for motor 3, normalized to 0 .. 1</field>
+			<field type="float" name="ref_motor_4">Reference for motor 4, normalized to 0 .. 1</field>
+			<field type="uint8_t" name="target_system">System ID</field>
+            <field type="uint8_t" name="target_component">Component ID</field>
+        </message>
+	<message id="189" name="ONBOARD_MOTORS_QUADROTOR">
+            <description>Onboard references for motors 1, 2, 3 and 4.</description>
+            <field type="float" name="ref_motor_1">Reference for motor 1, normalized to 0 .. 1</field>
+			<field type="float" name="ref_motor_2">Reference for motor 2, normalized to 0 .. 1</field>
+			<field type="float" name="ref_motor_3">Reference for motor 3, normalized to 0 .. 1</field>
+			<field type="float" name="ref_motor_4">Reference for motor 4, normalized to 0 .. 1</field>
+        </message>
+	<message id="190" name="STRING_MESSAGE_25">
+            <description>Send a string message. Size 25.</description>
+            <field type="char[25]" name="Message">Message</field>
+        </message>
+	<message id="191" name="STRING_MESSAGE_50">
+            <description>Send a string message. Size 50.</description>
+            <field type="char[50]" name="Message">Message</field>
+        </message>
+	<message id="192" name="STRING_MESSAGE_75">
+            <description>Send a string message. Size 75.</description>
+            <field type="char[75]" name="Message">Message</field>
+        </message>
+	<message id="193" name="STRING_MESSAGE_100">
+            <description>Send a string message. Size 100.</description>
+            <field type="char[100]" name="Message">Message</field>
         </message>
         <message id="248" name="V2_EXTENSION">
             <description>Message implementing parts of the V2 payload specs in V1 frames for transitional support.</description>

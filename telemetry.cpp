@@ -371,12 +371,18 @@ void telemetry::receive(void)
 
                         _onboard_references_quadrotor = true;
                         pthread_mutex_unlock(&mutexReceiveReferences);
-                        printf ("thrust = %f\n", onboard_references_quadrotor.thrust);
 
                         if (getBitBitfield(bitmaskAux, 3)==0) // Custom bitmask. I use this byte to avoid resending the message
                         {
                             write_onboard_references_quadrotor();
                         }
+                        break;
+
+                    case 188:
+                        pthread_mutex_lock(&mutexReceive);
+                        mavlink_msg_set_motors_quadrotor_decode(&msgReceive, &set_motors_quadrotor);
+                        _set_motors_quadrotor = true;
+                        pthread_mutex_unlock(&mutexReceive);
                         break;
 
                     default:
@@ -485,6 +491,14 @@ bool telemetry::b_onboard_references_quadrotor()
     return ret;
 }
 
+bool telemetry::b_set_motors_quadrotor()
+{
+    pthread_mutex_lock(&mutexReceive);
+    bool ret = _set_motors_quadrotor;
+    pthread_mutex_unlock(&mutexReceive);
+    return ret;
+}
+
 
 // Functions to get received messages
 void telemetry::get_set_mode(uint8_t *get_base_mode, uint32_t *get_custom_mode)
@@ -536,6 +550,13 @@ void telemetry::get_onboard_references_quadrotor(mavlink_onboard_references_quad
     pthread_mutex_unlock(&mutexReceiveReferences);
 }
 
+void telemetry::get_set_motors_quadrotor(mavlink_set_motors_quadrotor_t *get_set_motors_quadrotor)
+{
+    pthread_mutex_lock(&mutexReceive);
+    memcpy(get_set_motors_quadrotor, &set_motors_quadrotor, sizeof(mavlink_set_motors_quadrotor_t));
+    _set_motors_quadrotor = false;
+    pthread_mutex_unlock(&mutexReceive);
+}
 
 // Functions to send messages
 void telemetry::write_attitude(float _pitch, float _roll, float _yaw, float _pitchspeed, float _rollspeed, float _yawspeed)
@@ -621,6 +642,59 @@ void telemetry::write_mission_item_reached(uint16_t _seq)
 
     pthread_mutex_lock(&mutexWrite);
     mavlink_msg_mission_item_reached_encode(system_id, component_id, &msgSend, &mission_item_reached);
+    len = mavlink_msg_to_send_buffer(bufWrite, &msgSend);
+    write(bufWrite, len);
+    pthread_mutex_unlock(&mutexWrite);
+}
+
+void telemetry::write_onboard_motors_quadrotor(float ref1, float ref2, float ref3, float ref4)
+{
+    // #189 ONBOARD_MOTORS_QUADROTOR
+    onboard_motors_quadrotor.ref_motor_1 = ref1;
+    onboard_motors_quadrotor.ref_motor_2 = ref2;
+    onboard_motors_quadrotor.ref_motor_3 = ref3;
+    onboard_motors_quadrotor.ref_motor_4 = ref4;
+
+    pthread_mutex_lock(&mutexWrite);
+    mavlink_msg_onboard_motors_quadrotor_encode(system_id, component_id, &msgSend, &onboard_motors_quadrotor);
+    len = mavlink_msg_to_send_buffer(bufWrite, &msgSend);
+    write(bufWrite, len);
+    pthread_mutex_unlock(&mutexWrite);
+}
+
+
+void telemetry::write_string_message(const char msg[])
+{
+    // #190-193 STRING_MESSAGE
+    pthread_mutex_lock(&mutexWrite);
+    uint16_t msgLen = strlen(msg);
+
+    if (msgLen <= 25)
+    {
+        strcpy(string_message_25.Message, msg);
+        mavlink_msg_string_message_25_encode(system_id, component_id, &msgSend, &string_message_25);
+    }
+    else if (msgLen <= 50)
+    {
+        strcpy(string_message_50.Message, msg);
+        mavlink_msg_string_message_50_encode(system_id, component_id, &msgSend, &string_message_50);
+    }
+    else if (msgLen <= 75)
+    {
+        strcpy(string_message_75.Message, msg);
+        mavlink_msg_string_message_75_encode(system_id, component_id, &msgSend, &string_message_75);
+    }
+    else if (msgLen <= 100)
+    {
+        strcpy(string_message_100.Message, msg);
+        mavlink_msg_string_message_100_encode(system_id, component_id, &msgSend, &string_message_100);
+    }
+    else if (msgLen > 100)
+    {
+        strcpy(string_message_25.Message, "Error. Message too long");
+        mavlink_msg_string_message_25_encode(system_id, component_id, &msgSend, &string_message_25);
+    }
+
     len = mavlink_msg_to_send_buffer(bufWrite, &msgSend);
     write(bufWrite, len);
     pthread_mutex_unlock(&mutexWrite);
